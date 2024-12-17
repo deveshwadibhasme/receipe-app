@@ -1,7 +1,7 @@
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './App.jsx'
-import './CSS/output.css'
+import '/src/css/output.css'
 import HomePage from './pages/HomePage.jsx'
 import Catagories from './pages/Catagories.jsx';
 import Ingredient from './pages/Ingredient.jsx';

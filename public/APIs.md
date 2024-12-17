@@ -1,4 +1,4 @@
-API in Use: Maybe not
+API in Use: 
 
 Search meal by name
 www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata
@@ -10,7 +10,7 @@ Lookup full meal details by id
 www.themealdb.com/api/json/v1/1/lookup.php?i=52772
 
 Lookup a single random meal
-www.themealdb.com/api/json/v1/1/random.php
+www.themealdb.com/api/json/v1/1/random.php 
 
 List all meal categories
 www.themealdb.com/api/json/v1/1/categories.php
