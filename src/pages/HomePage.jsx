@@ -21,7 +21,7 @@ const HomePage = () => {
   }, [input])
 
   return (
-    <Home input={input} handleInput={handleInput} meals={meals} />
+    <Home input={input} handleInput={handleInput} meals={meals}  placeHolder={'Cake,Dal Fry...'} />
   )
 }
 

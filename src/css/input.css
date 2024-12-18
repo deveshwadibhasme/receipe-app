@@ -8,6 +8,15 @@
         position: relative;
         min-height: 100vh;
     }
+    ::placeholder{
+        @apply text-lg ;
+    }
+    .suggestion::-webkit-scrollbar{
+        @apply bg-transparent rounded-full;
+    }
+    .suggestion::-webkit-scrollbar-thumb{
+        @apply bg-yellow-100 rounded-full;
+    }
     .bgImage{
         background-image: url('https://img.freepik.com/free-photo/view-ready-eat-delicious-meal-go_23-2151431768.jpg?t=st=1734351712~exp=1734355312~hmac=22decdfd474cce7d7e91f590decddadcd6f91c8718c550a5eeefc3ac69dcc6a3&w=1060');
     }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import MealSuggestion from './MealSuggestion'
 
-const Home = ({ handleInput, input, meals }) => {
+const Home = ({ handleInput, input, meals, placeHolder }) => {
 
     return (
         <section
@@ -14,10 +14,11 @@ const Home = ({ handleInput, input, meals }) => {
                     className='max-w-80 w-full h-10 m-2 border-b-2 border-black bg-transparent outline-none text-xl'
                     value={input || localStorage.getItem('input')}
                     onChange={handleInput}
+                    placeholder={placeHolder}
                 />
             </div>
             <marquee className='text-white' behavior="smooth" direction="right">In Development...!!  &copy; Devesh Wadibhasme</marquee>
-            {meals && <div key={crypto.randomUUID()} className='grid grid-cols-2 md:grid-cols-4 mx-auto max-w-5xl overflow-y-scroll gap-3 md:gap-6 h-96 md:h-80'>
+            {meals && <div key={crypto.randomUUID()} className='grid grid-cols-2 md:grid-cols-4 mx-auto max-w-5xl overflow-y-scroll suggestion gap-3 md:gap-6 h-96 md:h-80'>
                 {meals.length === 0 || input === '' ? 'Nothing Here' : meals.map((meal) => (
                     <MealSuggestion key={meal.idMeal} meal={meal} />
                 ))}

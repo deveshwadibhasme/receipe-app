@@ -29,7 +29,7 @@ const Catagories = () => {
 
 
   return (
-    <Home input={input} handleInput={handleInput} meals={meals} />
+    <Home input={input} handleInput={handleInput} meals={meals} placeHolder={'Dessert,Veg...'} />
   )
 }
 
