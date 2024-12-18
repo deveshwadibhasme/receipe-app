@@ -20,7 +20,7 @@ const Header = () => {
       <nav className={nav}>
         <Link to={'/'} className='hover:text-lime-500' >Home</Link>
         <Link to={'/catagory'} className='hover:text-lime-500' >Catagories</Link>
-        <Link  to={'/ingredient'} className='hover:text-lime-500'>Ingredients</Link>
+        <Link  to={'/area'} className='hover:text-lime-500'>Area</Link>
         <Link to={'/favourite'} className='hover:text-lime-500'>Favourites</Link>
       </nav>
     </header>

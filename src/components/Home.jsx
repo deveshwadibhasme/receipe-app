@@ -1,27 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import MealSuggestion from './MealSuggestion'
 
-const Home = () => {
-
-    const [input, setInput] = useState('')
-
-
-    const [meals, setMeals] = useState([])
-
-    const handleInput = (e) => {
-        (setInput(e.target.value), localStorage.setItem('input', e.target.value))
-    }
-
-
-    useEffect(() => {
-        input && fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${input}`)
-            .then((data) => data.json())
-            .then(({ meals }) => {
-                setMeals(meals)
-            })
-            .catch((err) => console.log(err))
-    }, [input])
-
+const Home = ({ handleInput, input, meals }) => {
 
     return (
         <section
@@ -35,8 +15,8 @@ const Home = () => {
                     onChange={handleInput}
                 />
             </div>
-            {meals && <div className='grid grid-cols-2 md:grid-cols-4 mx-auto max-w-5xl overflow-y-scroll gap-3 md:gap-6 h-96 md:h-80'>
-                {meals.length === 0 && input === '' ? '' : meals.map((meal) => (
+            {meals && <div key={crypto.randomUUID()} className='grid grid-cols-2 md:grid-cols-4 mx-auto max-w-5xl overflow-y-scroll gap-3 md:gap-6 h-96 md:h-80'>
+                {meals.length === 0 || input === '' ? 'Nothing Here' : meals.map((meal) => (
                     <MealSuggestion key={meal.idMeal} meal={meal} />
                 ))}
             </div>}

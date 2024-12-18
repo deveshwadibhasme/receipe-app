@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Home from '../components/Home'
 
-const Catagories = () => {
-
+const Area = () => {
   const [input, setInput] = useState('')
 
   const [meals, setMeals] = useState([])
@@ -12,7 +11,7 @@ const Catagories = () => {
   }
 
   useEffect(() => {
-    input && fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${input}`)
+    input && fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?a=${input}`)
       .then((data) => data.json())
       .then(( mealId ) => {
         mealId.meals.map((meal) => {
@@ -33,4 +32,4 @@ const Catagories = () => {
   )
 }
 
-export default Catagories
+export default Area
