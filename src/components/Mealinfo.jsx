@@ -19,7 +19,7 @@ const MealInfo = () => {
             })
             .catch((err) => console.log(err))
     }
-    console.log(mealInfo)
+    // console.log(mealInfo)
     return (
         <div className='mx-auto min-h-screen w-screen bgImage bg-no-repeat bg-cover bg-[70%_40%] md:bg-[0_0] pt-24 px-9 flex flex-col md:flex-row gap-9'>
             <div className='mx-auto'>
@@ -30,7 +30,6 @@ const MealInfo = () => {
             <div>
                 <div className='bg-yellow-300 p-2'>{mealInfo.strInstructions}</div>
             </div>
-
         </div>
     )
 }
