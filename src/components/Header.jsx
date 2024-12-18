@@ -18,7 +18,7 @@ const Header = () => {
         <span className='font-bold text-xl'>Lets Cooked this!</span>
       </div>
       <nav className={nav}>
-        <Link to={'/'} className='hover:text-lime-500' >Home</Link>
+        <Link to={'/home'} className='hover:text-lime-500' >Home</Link>
         <Link to={'/catagory'} className='hover:text-lime-500' >Catagories</Link>
         <Link  to={'/area'} className='hover:text-lime-500'>Area</Link>
         <Link to={'/favourite'} className='hover:text-lime-500'>Favourites</Link>

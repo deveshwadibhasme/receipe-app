@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Home from '../components/Home'
+import ErrorEle from '../components/Error.jsx';
 
 const Catagories = () => {
 
@@ -24,7 +25,7 @@ const Catagories = () => {
             .catch((err) => console.log(err))
         })
       })
-      .catch((err) => console.log(err))
+      .catch((err) =><ErrorEle error={err}/>)
   }, [input])
 
 

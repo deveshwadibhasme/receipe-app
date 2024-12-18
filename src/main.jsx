@@ -6,15 +6,17 @@ import HomePage from './pages/HomePage.jsx'
 import Catagories from './pages/Catagories.jsx';
 import Area from './pages/Area.jsx';
 import MealInfo from './components/Mealinfo.jsx';
+import ErrorEle from './components/Error';
 import Favourite from './pages/Favourite.jsx';
 
 const routes = createBrowserRouter([
     {
         path: '/',
         element: <App />,
+        errorElement: <ErrorEle/>, 
         children: [
             { 
-                path: '/', 
+                path: '/home', 
                 element: <HomePage /> 
             },
             { 

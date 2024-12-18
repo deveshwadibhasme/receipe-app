@@ -16,7 +16,7 @@ const MealSuggestion = ({ meal }) => {
                         <NavLink to={`/${meal.strMeal}`} state={meal.idMeal}>
                             <img className='h-40 md:h-44 w-full' src={meal.strMealThumb} alt="" />
                             <h3 className='bg-yellow-100 p-1 text-sm md:text-[17px]'>{meal.strCategory}</h3>
-                            <h4 className='min-h-10 text-sm'>{meal.strMeal}</h4>
+                            <h4 className='min-h-10 text-sm font-bold'>{meal.strMeal}</h4>
                         </NavLink>
                         <button onClick={()=>handleAdd(`${meal.idMeal}`)} className='h-8 w-full bg-yellow-600 z-4'>Add to Favourite</button>
                     </div>
