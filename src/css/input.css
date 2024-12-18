@@ -17,4 +17,7 @@
     .nav-sm{
         @apply bg-yellow-700 p-2 rounded-full px-2 max-w-sm flex justify-between w-full text-sm font-semibold text-white absolute -bottom-[85vh]
     }
+    .text-border{
+        text-shadow: 1px 1px 3px black;
+    }
 }

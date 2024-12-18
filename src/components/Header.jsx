@@ -21,7 +21,7 @@ const Header = () => {
         <Link to={'/'} className='hover:text-lime-500' >Home</Link>
         <Link to={'/catagory'} className='hover:text-lime-500' >Catagories</Link>
         <Link  to={'/ingredient'} className='hover:text-lime-500'>Ingredients</Link>
-        <Link className='hover:text-lime-500'>Favourites</Link>
+        <Link to={'/favourite'} className='hover:text-lime-500'>Favourites</Link>
       </nav>
     </header>
   )

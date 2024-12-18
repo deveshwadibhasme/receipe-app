@@ -5,7 +5,7 @@ import '/src/css/output.css'
 import HomePage from './pages/HomePage.jsx'
 import Catagories from './pages/Catagories.jsx';
 import Ingredient from './pages/Ingredient.jsx';
-import MealInfo from './components/MealInfo.jsx';
+import MealInfo from './components/Mealinfo.jsx';
 
 const routes = createBrowserRouter([
     {
@@ -26,6 +26,10 @@ const routes = createBrowserRouter([
             },
             { 
                 path: '/ingredient', 
+                element: <Ingredient /> 
+            },
+            { 
+                path: '/favourite', 
                 element: <Ingredient /> 
             },
         ]
