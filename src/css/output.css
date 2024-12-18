@@ -570,13 +570,17 @@ video {
   z-index: 10;
 }
 
+.m-2 {
+  margin: 0.5rem;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
 }
 
-.mt-2 {
-  margin-top: 0.5rem;
+.mt-24 {
+  margin-top: 6rem;
 }
 
 .flex {
@@ -585,6 +589,18 @@ video {
 
 .grid {
   display: grid;
+}
+
+.h-10 {
+  height: 2.5rem;
+}
+
+.h-44 {
+  height: 11rem;
+}
+
+.h-80 {
+  height: 20rem;
 }
 
 .h-full {
@@ -599,16 +615,16 @@ video {
   min-height: 3.5rem;
 }
 
-.min-h-52 {
-  min-height: 13rem;
+.min-h-64 {
+  min-height: 16rem;
 }
 
 .min-h-screen {
   min-height: 100vh;
 }
 
-.min-h-64 {
-  min-height: 16rem;
+.w-40 {
+  width: 10rem;
 }
 
 .w-full {
@@ -619,12 +635,16 @@ video {
   width: 100vw;
 }
 
-.max-w-4xl {
-  max-width: 56rem;
-}
-
 .max-w-52 {
   max-width: 13rem;
+}
+
+.max-w-5xl {
+  max-width: 64rem;
+}
+
+.max-w-80 {
+  max-width: 20rem;
 }
 
 .max-w-screen-xl {
@@ -657,10 +677,6 @@ video {
   align-items: center;
 }
 
-.justify-center {
-  justify-content: center;
-}
-
 .justify-around {
   justify-content: space-around;
 }
@@ -669,8 +685,25 @@ video {
   gap: 0.5rem;
 }
 
-.gap-5 {
-  gap: 1.25rem;
+.gap-3 {
+  gap: 0.75rem;
+}
+
+.overflow-y-scroll {
+  overflow-y: scroll;
+}
+
+.border-b-2 {
+  border-bottom-width: 2px;
+}
+
+.border-black {
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity, 1));
+}
+
+.bg-transparent {
+  background-color: transparent;
 }
 
 .bg-cover {
@@ -697,6 +730,16 @@ video {
 
 .font-bold {
   font-weight: 700;
+}
+
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+.outline-none {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }
 
 @layer {
@@ -755,12 +798,16 @@ video {
 }
 
 @media (min-width: 768px) {
-  .md\:grid-cols-4 {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+  .md\:h-52 {
+    height: 13rem;
   }
 
-  .md\:gap-7 {
-    gap: 1.75rem;
+  .md\:w-52 {
+    width: 13rem;
+  }
+
+  .md\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .md\:bg-\[0_0\] {

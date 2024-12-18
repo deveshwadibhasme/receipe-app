@@ -5,6 +5,7 @@ import '/src/css/output.css'
 import HomePage from './pages/HomePage.jsx'
 import Catagories from './pages/Catagories.jsx';
 import Ingredient from './pages/Ingredient.jsx';
+import MealInfo from './components/MealInfo.jsx';
 
 const routes = createBrowserRouter([
     {
@@ -14,6 +15,10 @@ const routes = createBrowserRouter([
             { 
                 path: '/', 
                 element: <HomePage /> 
+            },
+            { 
+                path: '/:mealName', 
+                element: <MealInfo/>
             },
             { 
                 path: '/catagory', 
