@@ -1,15 +1,25 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from "react";
+import { FavContext } from "../contexts/FavContext";
 
 const Favourite = () => {
+  const [fav] = useContext(FavContext);
 
   return (
-    <div style={{ paddingTop: 200 }} className='min-h-screen w-screen bgImage bg-no-repeat bg-cover bg-[70%_40%] md:bg-[0_0]'>
-      <h1 className='text-white font-bold text-border'>
-        I will implements this tab... when I learned the concept of Context API in React.
-        I will definetely share this with community.
-      </h1>
-    </div>
-  )
-}
+    <>
+      <marquee behavior="smooth" direction="left" className='bg-[rgb(248,211,45)] pt-11'>
+        I Do more styling and modification in future
+      </marquee>
+      <div className="min-h-screen w-screen bgImage bg-no-repeat bg-cover bg-[70%_40%] md:bg-[0_0] pt-24 pl-5 grid grid-cols-3 md:grid-cols-10">
+        {fav.map((f) => (
+          <img
+            style={{ maxWidth: "100px", marginBottom: "20px" }}
+            src={f.strMealThumb}
+            key={f.idMeal}
+          ></img>
+        ))}
+      </div>
+    </>
+  );
+};
 
-export default Favourite
+export default Favourite;

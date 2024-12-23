@@ -1,14 +1,15 @@
 import { Outlet } from "react-router-dom"
-import React from 'react'
+import React, { useContext } from 'react'
 import Header from "./components/Header.jsx"
-import HomePage from "./pages/HomePage.jsx"
+import { FavProvider } from "./contexts/FavContext"
 
 const App = () => {
+  
   return (
-    <>
+    <FavProvider>
       <Header/>
       <Outlet />
-    </>
+    </FavProvider>
   )
 }
 

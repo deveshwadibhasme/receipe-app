@@ -10,7 +10,7 @@ const Home = ({ handleInput, input, meals, placeHolder }) => {
                 <input
                     type="text"
                     className='max-w-80 w-full h-10 m-2 border-b-2 border-black bg-transparent outline-none text-xl'
-                    value={input || localStorage.getItem('input')}
+                    value={(input || localStorage.getItem('input')) || input}
                     onChange={handleInput}
                     placeholder={placeHolder}
                 />
