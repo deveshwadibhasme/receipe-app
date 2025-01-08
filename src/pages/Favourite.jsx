@@ -5,15 +5,6 @@ import { Link } from "react-router-dom";
 const Favourite = () => {
   const [fav, setFav] = useContext(FavContext); 
 
-  useEffect(() => {
-    const localFav = JSON.parse(localStorage.getItem("favourites"));
-    if (localFav) setFav(localFav);
-  }, [setFav]);
-
-  useEffect(() => {
-    localStorage.setItem("favourites", JSON.stringify(fav));
-  },[fav])
-
   return (
     <>
       <marquee
