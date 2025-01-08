@@ -1,8 +1,18 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { FavContext } from "../contexts/FavContext";
+import { Link } from "react-router-dom";
 
 const Favourite = () => {
-  const [fav,setFav] = useContext(FavContext); 
+  const [fav, setFav] = useContext(FavContext); 
+
+  useEffect(() => {
+    const localFav = JSON.parse(localStorage.getItem("favourites"));
+    if (localFav) setFav(localFav);
+  }, [setFav]);
+
+  useEffect(() => {
+    localStorage.setItem("favourites", JSON.stringify(fav));
+  },[fav])
 
   return (
     <>
@@ -19,27 +29,30 @@ const Favourite = () => {
       </div>
       <div className="min-h-screen w-screen bgImage bg-no-repeat bg-cover bg-[70%_40%] md:bg-[0_0] pt-24 pl-5 grid grid-cols-3 md:grid-cols-10">
         <>
-        {
-          fav?.map((f)=>(
-            <div
-            key={f.idMeal}
-              onClick={() =>{
-                setFav(fav.filter((fav) => fav.idMeal !== f.idMeal))
-              }}
-              className="cursor-pointer"
-            >
-              <img
-                style={{ maxWidth: "100px", marginBottom: "20px" }}
-                src={f.strMealThumb}
-              ></img>
-              <h1>{f.strMeal}</h1>
-            </div>  
-        ))
-      }
-      </>
+          {fav?.map((f) => (
+            <div className="flex flex-col" key={f.idMeal}>
+              <Link to={`/${f.strMeal}`} state={f.idMeal} className="cursor-pointer">
+                <img
+                  style={{ maxWidth: "100px", marginBottom: "20px" }}
+                  src={f.strMealThumb}
+                  alt={f.strMeal}
+                ></img>
+                <h1>{f.strMeal}</h1>
+              </Link>
+              <div
+                style={{ color: "tomato" , cursor: "pointer" }}
+                onClick={() => {
+                  setFav(fav.filter((fav) => fav.idMeal !== f.idMeal));
+                }}
+              >
+                Delete
+              </div>
+            </div>
+          ))}
+        </>
       </div>
-      </>
-  )
+    </>
+  );
 };
 
 export default Favourite;
