@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { FavContext } from "../contexts/FavContext";
 
@@ -6,10 +6,10 @@ const MealSuggestion = ({ meal }) => {
   const [fav, setFav] = useContext(FavContext);
 
   const handleAdd = (favMeal) => {
-    // console.log(setFav);
-    // console.log(fav);
-    console.log(favMeal.strMeal);
-    setFav((prev) => [...prev, favMeal]);
+    console.log(fav);
+    const checkRepeat = fav.findIndex((f) => f.idMeal===favMeal.idMeal) !== -1
+    checkRepeat ? alert(`${favMeal.strMeal} is already in your favourite list`) :
+    setFav((prev) =>[...prev, favMeal])
   };
 
   return (
