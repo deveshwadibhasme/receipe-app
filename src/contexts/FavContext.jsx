@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 
 
-export const FavContext = createContext()
+export const FavContext = createContext();  
 
 export const FavProvider = ({ children }) => {
     const [fav, setFav] = useState([])

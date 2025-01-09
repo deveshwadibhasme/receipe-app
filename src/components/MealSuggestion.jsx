@@ -4,11 +4,16 @@ import { FavContext } from "../contexts/FavContext";
 
 const MealSuggestion = ({ meal }) => {
   const [fav, setFav] = useContext(FavContext);
-
+  
   const handleAdd = (favMeal) => {
-    const checkRepeat = fav.findIndex((f) => f.idMeal===favMeal.idMeal) !== -1
-    checkRepeat ? alert(`${favMeal.strMeal} is already in your favourite list`) :
-    setFav((prev) =>[...prev, favMeal])
+    if (!fav) {
+      setFav(favMeal)
+      console.log('process');
+      return
+    }
+      const checkRepeat = fav.findIndex((f) => f.idMeal===favMeal.idMeal) !== -1
+      checkRepeat ? alert(`${favMeal.strMeal} is already in your favourite list`) :
+      setFav((prev) =>[...prev, favMeal])
   };
 
   return (
