@@ -1,48 +1,72 @@
-import React, { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { FavContext } from "../contexts/FavContext";
 import { Link } from "react-router-dom";
+import { FaHeart, FaTrash } from 'react-icons/fa'; // Add icons
 
 const Favourite = () => {
-  const [fav, setFav] = useContext(FavContext); 
+  const [fav, setFav] = useContext(FavContext);
 
   return (
-    <>
-      <marquee
-        behavior="smooth"
-        direction="left"
-        className="bg-[rgb(248,211,45)] pt-11"
-      >
-        I Do more styling and modification in future
-      </marquee>
-      <div className="text-center flex justify-center items-center bg-[rgb(248,211,45)] gap-2">
-        <h1>Favourite Recipes</h1>
-        <h2> (Total: {fav?.length})</h2>
+    <div className="min-h-screen pt-20 bgImage bg-no-repeat bg-cover bg-[70%_40%] md:bg-[0_0] bg-gray-100">
+      <div className="bg-yellow-400/90 py-6 shadow-md sticky top-0">
+        <div className="container mx-auto text-center">
+          <h1 className="text-3xl font-bold text-gray-800 mb-2">
+            My Favorite Recipes
+          </h1>
+          <div className="flex items-center justify-center gap-2">
+            <FaHeart className="text-red-500" />
+            <span className="text-gray-700 text-xl">
+              {fav?.length || 0} {fav?.length === 1 ? 'Recipe' : 'Recipes'}
+            </span>
+          </div>
+        </div>
       </div>
-      <div className="min-h-screen w-screen bgImage bg-no-repeat bg-cover bg-[70%_40%] md:bg-[0_0] pt-24 pl-5 grid grid-cols-3 md:grid-cols-10">
-        <>
-          {fav?.map((f) => (
-            <div className="flex flex-col" key={f.idMeal}>
-              <Link to={`/${f.strMeal}`} state={f.idMeal} className="cursor-pointer">
-                <img
-                  style={{ maxWidth: "100px", marginBottom: "20px" }}
-                  src={f.strMealThumb}
-                  alt={f.strMeal}
-                ></img>
-                <h1>{f.strMeal}</h1>
-              </Link>
-              <div
-                style={{ color: "tomato" , cursor: "pointer" }}
-                onClick={() => {
-                  setFav(fav.filter((fav) => fav.idMeal !== f.idMeal));
-                }}
+
+      {/* Grid Layout */}
+      <div className="container mx-auto px-4 py-8">
+        {fav?.length === 0 ? (
+          <div className="text-center py-10">
+            <p className="text-gray-600 text-xl">No favorite recipes yet!</p>
+            <Link to="/" className="text-blue-500 hover:text-blue-600 mt-4 inline-block">
+              Browse Recipes
+            </Link>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {fav?.map((f) => (
+              <div 
+                key={f.idMeal}
+                className="bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition-transform duration-200"
               >
-                Delete
+                <Link to={`/${f.strMeal}`} state={f.idMeal}>
+                  <img
+                    className="w-full h-48 object-cover"
+                    src={f.strMealThumb}
+                    alt={f.strMeal}
+                  />
+                  <div className="p-4">
+                    <h2 className="text-lg font-semibold text-gray-800 truncate">
+                      {f.strMeal}
+                    </h2>
+                  </div>
+                </Link>
+                <div className="px-4 pb-4">
+                  <button
+                    onClick={() => {
+                      setFav(fav.filter((fav) => fav.idMeal !== f.idMeal));
+                    }}
+                    className="flex items-center gap-2 text-red-500 hover:text-red-600 transition-colors duration-200"
+                  >
+                    <FaTrash />
+                    <span>Remove from favorites</span>
+                  </button>
+                </div>
               </div>
-            </div>
-          ))}
-        </>
+            ))}
+          </div>
+        )}
       </div>
-    </>
+    </div>
   );
 };
 
